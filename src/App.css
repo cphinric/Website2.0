@@ -1,38 +1,108 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+p {
+  line-height: 1.5;
+  text-align:start;
+}
+
+body {
+  font-family: Arial; 
+  background: transparent;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.body {
+  padding: 10px;
+}
+
+
+.header {
+  padding: 15px;
+  padding-top: 0px;
+  text-align: left;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  text-shadow:2px 2px 4px black;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+.centerbox {
+  float: center;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.rightcolumn {
+  float: right;
+  width: 75%;
+  background-color: #4d4c4c;
+  padding-left: 20px;
+}
+
+.card {
+  background-color: rgb(66, 66, 66);
+  border: 8px solid #2b2b2b;;
+  padding: 20px;
+  margin-top: 20px;
+  color:rgb(223, 220, 220);
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px black;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer {
+  margin-top: 20px;
+  background-color: white;
   text-align: center;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  position: fixed;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.custom_button{
+  background-color: cornflowerblue;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.custom_button:hover{
+  background-color:aquamarine;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .leftcolumn, .rightcolumn{
+      width: 100%;
+      padding: 0;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
   }
 }
