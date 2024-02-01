@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+}
+
+p {
+  line-height: 1.5;
+  text-align:start;
+}
+
+body {
+  font-family: Arial; 
+  background: transparent;
+  background-color: #4d4c4c;
+}
+
+.header {
+  padding-left: 20px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  text-align: left;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  text-shadow:2px 2px 4px black;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.header h1 {
+  font-size: 80px;
+}
+
+/* Additional styling for the header within the card to mimic terminal UI */
+.card h2 {
+  border-bottom: 1px solid #0f0; /* Green line to separate the title */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Styling for lists to remove bullets and padding for a cleaner look */
+.card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  border:#2b2b2b;
+}
+
+/* Styling for links to fit the terminal theme */
+.card a {
+  color: #33ff33; /* Green text color */
+  text-decoration: none; /* No underline */
+}
+
+.card a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.body {
+  padding: 10px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Adjust the number to the number of cards you want in a row */
+  gap: 20px;
+}
+
+.leftCard, .centerCard, .rightCard {
+  grid-column: span 1; /* Each card will span one fraction of the available space */
+}
+
+/* If you have a fullCard that should span the full width, you can keep this */
+.fullCard {
+  grid-column: 1 / -1;
+}
+
+
+.card {
+  background-color: #1e1e1e; /* Dark background for terminal */
+  color: #33ff33; /* Green text color similar to old-school terminals */
+  border-radius: 5px; /* Rounded corners for the card */
+  padding: 20px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font for the classic terminal look */
+  overflow: hidden; /* Hide overflow */
+  border: 1px solid #333; /* Border to mimic terminal window edge */
+  position: relative; /* For absolute positioning of the header */
+  padding-top: 40px; /* Add more padding to the top to avoid overlapping content with the header */
+}
+
+/* Terminal window header buttons */
+.card-header-button {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+
+.card-header-button.close {
+  background-color: #ff5f56;
+}
+
+.card-header-button.minimize {
+  background-color: #ffbd2e;
+}
+
+.card-header-button.maximize {
+  background-color: #27c93f;
+}
+
+/* Content inside the card */
+.card-content {
+  position: relative; /* Ensure it's above the absolute positioned header */
+  z-index: 1;
+}
+
+
+.card-header {
+  background-color: #333;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top-left-radius: 5px; /* Match the card's border radius */
+  border-top-right-radius: 5px;
+}
+
+.footer {
+  margin-top: 20px;
+  background-color: white;
+  text-align: center;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  position: fixed;
+}
+
+.custom_button{
+  background-color: darkgreen;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.custom_button:hover{
+  background-color:aquamarine;
+}
+
+@keyframes wave-animation {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.wave-text span {
+  animation-name: wave-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  /* Apply a slight delay to each letter */
+  animation-delay: calc(0.1s * var(--i));
+}
+
+@media screen and (max-width: 1200px) {
+  .row {
+    /* Adjust the number of columns for medium-sized screens */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .centerCard, .leftCard, .rightCard {
+    /* Make the center, left, and right cards take up full width on smaller screens */
+    grid-column: 1 / -1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    /* Stack the cards on top of each other on small screens */
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* Adjustments for very small screens */
+  .header h1 {
+    font-size: 50px; /* Smaller font size for the header */
+  }
+
+  .card {
+    padding: 10px; /* Less padding inside the card */
+  }
+}
